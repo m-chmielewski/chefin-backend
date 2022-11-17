@@ -10,17 +10,17 @@ const client = new MongoClient(connectionString);
 let db;
 
 module.exports = {
-  connectToServer: function (callback) {
-    client
-      .connect()
-      .then((connection) => {
-        db = connection.db(process.env.DB_NAME);
-        console.log("Successfully connected to MongoDB.");
-        return callback();
-      })
-      .catch((err) => console.log(err));
-  },
-  getDb: function () {
-    return db;
-  },
+ connectToServer: function (callback) {
+  client
+   .connect()
+   .then(connection => {
+    db = connection.db(process.env.DB_NAME);
+    console.log("Successfully connected to MongoDB.");
+    return callback();
+   })
+   .catch(err => console.log(err));
+ },
+ getDb: function () {
+  return db;
+ },
 };
